@@ -1,0 +1,30 @@
+sudo update-java-alternatives --list
+
+source ~/.bashrc
+. ~/.bashrc
+
+sudo update-java-alternatives --install /usr/lib/jvm/ java /usr/lib/jvm/corretto-11.0.19/bin/java 5
+
+
+
+https://www.conduktor.io/kafka/how-to-install-apache-kafka-on-linux-without-zookeeper-kraft-mode/
+
+
+~/Kafka/kafka_2.13-3.1.0/bin/zookeeper-server-start.sh ~/Kafka/kafka_2.13-3.1.0/config/zookeeper.properties
+
+~/Kafka/kafka_2.13-3.1.0/bin/kafka-server-start.sh ~/Kafka/kafka_2.13-3.1.0/config/server.properties
+
+The first step is to generate a new ID for your cluster
+~/Kafka/kafka_2.13-3.1.0/bin/kafka-storage.sh random-uuid
+jtFFrn8lRymhzusICn_VDg
+
+~/Kafka/kafka_2.13-3.1.0/bin/kafka-storage.sh format -t jtFFrn8lRymhzusICn_VDg -c ~/Kafka/kafka_2.13-3.1.0/config/kraft/server.properties
+
+
+~/Kafka/kafka_2.13-3.1.0/bin/kafka-server-start.sh ~/Kafka/kafka_2.13-3.1.0/config/kraft/server.properties
+
+
+
+
+read topic use console consummer!
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic demo_java --from-beginning
