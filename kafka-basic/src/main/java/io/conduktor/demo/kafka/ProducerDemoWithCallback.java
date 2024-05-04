@@ -32,7 +32,7 @@ public class ProducerDemoWithCallback {
 
             for (int i = 0; i < 30; i++) {
                 // create a Producer Record
-                ProducerRecord<String, String> producerRecord = new ProducerRecord<>("demo_java", "message " + i);
+                ProducerRecord<String, String> producerRecord = new ProducerRecord<>("demo_java_3partition", "message " + i);
 
                 // send data
                 producer.send(producerRecord, new Callback() {
